@@ -16,7 +16,7 @@ $google_client->setClientSecret('bC8jeHknAaMr-8mGfb_JJzDk');
 
 //Set the OAuth 2.0 Redirect URI
 //$google_client->setRedirectUri('http://localhost/authantication-project/project-upload-and-download/index.php');
-$google_client->setRedirectUri('http://localhost/public_html/public_html/v12/index.php');
+$google_client->setRedirectUri('v12/index.php');
 //$google_client->setRedirectUri('http://localhost/authantication-project/project-upload-and-download/index.php');
 $google_client->addScope('email');
 
