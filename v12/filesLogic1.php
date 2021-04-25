@@ -1,16 +1,16 @@
 <?php 
-/*
+
 
 $servername = "localhost";
 $username = "id14996888_root";
 $password = "Ei)IFOM!Q7+n0AY^"; // no password for localhost
 $database = "id14996888_upload"; // name of database 
-*/
-
+/*
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "upload";
+$database = "upload"; */
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 
