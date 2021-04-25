@@ -1,0 +1,73 @@
+<?php 
+    
+    //database connection 
+$servername = "localhost";
+$username = "id14996888_root";
+$password = "Ei)IFOM!Q7+n0AY^";
+$database = "id14996888_upload";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+
+$sql = "SELECT * FROM files";
+
+$result = mysqli_query($conn,$sql);
+
+$files = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+
+if(isset($_POST['save']))    // after click ing button name of save 
+{   
+    
+    $filename = $_FILES['myfile']['name'];
+    
+    $destination = 'upt/' .$filename;     // save file on this folder 
+    
+    $extension = pathinfo($filename,PATHINFO_EXTENSION);
+    
+    
+    // defing 
+    
+    $file = $_FILES['myfile']['tmp_name'];
+   
+    $size = $_FILES['myfile']['size'];
+    
+    $fname=$_POST["fname"];
+
+    
+    
+    // support file format
+    
+    if(!in_array($extension,['zip','pdf','PNG','png','JPG','txt','docx','jpg','java','class','JAVA','xlsx','xls','py']))
+    {
+        echo"your file extension must be .zip, .pdf, .png, .JPG, .docx, .txt , .class, .xlsx, .xls, .py";    // print after choosing wrong file extension
+    }
+    elseif($_FILES['myfile']['size'] > 100000000)     // maxmum file size spport
+    {
+        echo "file size is too large";   // print after lare file size 
+    }
+     
+
+    else{
+        if(move_uploaded_file($file,$destination))     // move file affter above conidition fullfill by user 
+        {
+            $sql = "INSERT INTO files(name, size,downloads,fname)
+            VALUES('$filename','$size',0,'$fname')";         // insert data in to following database colloumens 
+            
+            if(mysqli_query($conn,$sql))
+            { 
+                echo  "file uploded successfully";
+            }
+            else{
+                echo "faild to upload file";
+            }
+        }
+            
+    }
+     
+}
+    
+ 
+
+?>
