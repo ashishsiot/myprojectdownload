@@ -7,9 +7,9 @@ div.echo-massage {
 </style> -->
 <?php 
      
-/* $conn = mysqli_connect("localhost","id14996888_root","Ei)IFOM!Q7+n0AY^","id14996888_upload"); */
+ $conn = mysqli_connect("localhost","id14996888_root","Ei)IFOM!Q7+n0AY^","id14996888_upload"); 
 
-  $conn = mysqli_connect("localhost","root","","upload");
+  /* $conn = mysqli_connect("localhost","root","","upload");*/
 
 $sql = "SELECT * FROM files";
 
